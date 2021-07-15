@@ -1,40 +1,57 @@
-# Simple Blog app
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="#">
+    <img src="./trex.png" alt="Logo" width="80" height="80">
+  </a>
 
-## Stack
+  <h3 align="center">Project Chat App</h3>
 
-***
-
-### === Frontend ===
-
-#### React
-
-#### Redux
-
-#### redux-saga
-
-#### styled-components
-
-### === Backend ===
-
-#### Express
-
-#### Mongodb
-
-<h1 align="center">Welcome to React Blog App 👋</h1>
-<p>
+  <p align="center">
+    Blog App using React and Express
+    <br />
+  </p>
 </p>
 
-> A Blog web with React and Express
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Usage</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-## Author
+<!-- ABOUT THE PROJECT -->
 
-👤 **Lee Jongseo**
+## About The Project
 
-* Website: https://leejss.github.io/
-* Github: [@leejss](https://github.com/leejss)
+[![blog1][product-screenshot1]](#about-the-project)
+[![blog2][product-screenshot2]](#about-the-project)
+[![blog3][product-screenshot3]](#about-the-project)
 
-## Skills
+백엔드로 Express와 Mongodb, 프론트엔드로 React를 이용한 풀스택 웹 프로젝트입니다. 데이터베이스로 Mongodb Atlas를 이용하였고, Express를 통해서 Restful API를 구현하였습니다. User Authentication으로는 JWT를 사용했습니다. 스타일링은 styled-components을 사용했습니다. 상태 관리로 Redux를 사용했고 API요청으로 redux-saga 라이브러리를 이용했습니다.
 
-<h3 align="left">Languages and Tools:</h3>
+### Built With
 
-<p align="left">  <a href="https://expressjs.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank"> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redux.js.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> </p>
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [styled-components](https://styled-components.com/)
+- [Mongodb Atlas](https://www.mongodb.com/)
+- [Express](https://expressjs.com/)
+- [redux-saga](https://redux-saga.js.org/)
+- [jwt](https://www.npmjs.com/package/jsonwebtoken)
+
+## Contact
+
+Lee Jongseo - [gmail](goldemshine@gmail.com) - goldemshine@gmail.com
+
+[product-screenshot1]: images/blog2.PNG
+[product-screenshot2]: images/blog4.PNG
+[product-screenshot3]: images/blog6.PNG
