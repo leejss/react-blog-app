@@ -1,16 +1,16 @@
-{
-    "env": {
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "extends": ["eslint:recommended","prettier"],
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "rules": {
-        "no-unused-vars": "warn",
-        "no-console": "off"
-    }
-}
+// {
+//     "env": {
+//         "commonjs": true,
+//         "es6": true,
+//         "node": true
+//     },
+//     "extends": ["eslint:recommended","prettier"],
+//     "parserOptions": {
+//         "ecmaVersion": 2018,
+//         "sourceType": "module"
+//     },
+//     "rules": {
+//         "no-unused-vars": "warn",
+//         "no-console": "off"
+//     }
+// }

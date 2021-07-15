@@ -55,7 +55,7 @@ const Header = ({ user, onLogout }) => {
     <>
       <HeaderBlock>
         <Wrapper>
-          <Logo to="/">BASH</Logo>
+          <Logo to="/">Zlog</Logo>
           {user ? (
             <div className="right">
               <UserInfo>

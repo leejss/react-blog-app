@@ -4,13 +4,13 @@ import config from './config';
 
 const server = () => {
   mongoose
-    .connect(config.mongoUri, {
+    .connect(config.mongoUriCloud, {
       useNewUrlParser: true,
       useFindAndModify: false,
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log(`Connected to Mongodb`);
+      console.log(`Connected to Mongodb Atlas`);
       // fakeData();
     });
   app.listen(config.port, () => {

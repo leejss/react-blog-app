@@ -23,27 +23,32 @@ export const register = async (req, res) => {
     // 중복 검사
     const exists = await User.findByUsername(username);
     if (exists) {
+      // 409: conflict
       return res.status(409).end();
     }
     // new user
     const user = new User({
       username,
     });
-    // set password
-    // hashed password를 데이터베이스에 저장
+    // seve hashed password
     await user.setPassword(password);
     await user.save();
 
     // token을 cookie에 담는다. - 토큰 발급
+    // token: string
     const token = user.generateToken();
-    return res
-      .cookie('access_token', token, {
-        maxAge: 1000 * 60 * 60 * 24 * 7,
-        httpOnly: true,
-      })
-      .status(202)
-      .json(user.serialize());
+    return (
+      res
+        .cookie('access_token', token, {
+          maxAge: 1000 * 60 * 60 * 24 * 7,
+          httpOnly: true,
+        })
+        // 200: OK
+        .status(200)
+        .json(user.serialize())
+    );
   } catch (err) {
+    // 500: Internal Server Error
     return res.status(500).json({
       error: err.message,
     });
@@ -55,7 +60,8 @@ export const login = async (req, res) => {
   const { username, password } = req.body;
   // validate data
   if (!username || !password) {
-    return res.status(401).end();
+    // 401: Unauthorized
+    return res.sendStatus(401);
   }
 
   try {

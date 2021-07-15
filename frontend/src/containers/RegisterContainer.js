@@ -8,12 +8,11 @@ import { check } from '../modules/user';
 const RegisterContainer = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
-    form: auth.register,
-    auth: auth.auth,
-    authError: auth.authError,
-    user: user.user,
-  }));
+  const form = useSelector((state) => state.auth.register);
+  const auth = useSelector((state) => state.auth.auth);
+  const authError = useSelector((state) => state.auth.authError);
+  const user = useSelector((state) => state.user.user);
+
   const onChange = (e) => {
     const { value, name } = e.target;
     dispatch(
@@ -24,6 +23,7 @@ const RegisterContainer = ({ history }) => {
       }),
     );
   };
+
   const onSubmit = (e) => {
     e.preventDefault();
     const { username, password, passwordConfirm } = form;
@@ -33,12 +33,14 @@ const RegisterContainer = ({ history }) => {
     }
     if (password !== passwordConfirm) {
       setError('비밀번호가 일치하지 않습니다.');
+      // Empty field
       dispatch(changeField({ form: 'register', key: 'password', value: '' }));
       dispatch(
         changeField({ form: 'register', key: 'passwordConfirm', value: '' }),
       );
       return;
     }
+    // dispatch register
     dispatch(register({ username, password }));
   };
 
