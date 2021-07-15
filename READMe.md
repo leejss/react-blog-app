@@ -5,7 +5,7 @@
     <img src="./trex.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Project Chat App</h3>
+  <h3 align="center">React Blog App</h3>
 
   <p align="center">
     Blog App using React and Express
@@ -56,14 +56,14 @@
 
 ### Installation
 
-1. Install server
+1. Install backend
 
 ```sh
 cd backend
 npm install
 ```
 
-2. Install React
+2. Install frontend
 
 ```sh
 cd fronend
@@ -88,7 +88,7 @@ npm start
 
 ## Contact
 
-Lee Jongseo - [gmail](goldemshine@gmail.com) - goldemshine@gmail.com
+Lee Jongseo - goldemshine@gmail.com
 
 [product-screenshot1]: images/blog2.PNG
 [product-screenshot2]: images/blog4.PNG
