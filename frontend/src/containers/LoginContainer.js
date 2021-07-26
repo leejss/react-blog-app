@@ -4,6 +4,7 @@ import { changeField, initForm, login } from '../modules/auth';
 import AuthForm from '../components/auth/AuthForm';
 import { check } from '../modules/user';
 import { withRouter } from 'react-router-dom';
+import { authActions } from '../features/feature-auth/authSlice';
 
 const LoginContainer = ({ history }) => {
   const [error, setError] = useState(null);
@@ -17,7 +18,7 @@ const LoginContainer = ({ history }) => {
   const onChange = (e) => {
     const { value, name } = e.target;
     dispatch(
-      changeField({
+      authActions.CHANGE_FORM({
         form: 'login',
         key: name,
         value,

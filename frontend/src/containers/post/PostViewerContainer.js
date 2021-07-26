@@ -6,23 +6,33 @@ import { withRouter } from 'react-router-dom';
 import PostActionButtons from '../../components/post/PostActionButtons';
 import { storePost } from '../../modules/write';
 import { removePost } from '../../lib/api/posts';
+import { postActions } from '../../features/feature-post/postSlice';
 
 const PostViewerContainer = ({ match, history }) => {
   const { postId } = match.params;
   const dispatch = useDispatch();
-  const { post, error, loading, user } = useSelector(
-    ({ post, loading, user }) => ({
-      post: post.post,
-      error: post.error,
-      loading: loading['post/READ_POST'],
-      user: user.user,
-    }),
-  );
+  // const { post, error, loading, user } = useSelector(
+  //   ({ post, loading, user }) => ({
+  //     post: post.post,
+  //     error: post.error,
+  //     loading: loading['post/READ_POST'],
+  //     user: user.user,
+  //   }),
+  // );
+
+  const post = useSelector((state) => state.post.post);
+  const error = useSelector((state) => state.post.error);
+  const loading = useSelector((state) => state.post.loading);
+  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
-    dispatch(readPost(postId));
+    // dispatch(readPost(postId));
+    // return () => {
+    //   dispatch(unloadPost());
+    // };
+    dispatch(postActions.READ_POST(postId));
     return () => {
-      dispatch(unloadPost());
+      dispatch(postActions.UNLOAD_POST());
     };
   }, [dispatch, postId]);
 

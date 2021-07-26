@@ -6,10 +6,13 @@ import user, { userSaga } from './user';
 import write, { writeSaga } from './write';
 import post, { postSaga } from './post';
 import posts, { postsSaga } from './posts';
+import authReducer from '../features/feature-auth/authSlice';
+import userReducer from '../features/feature-user/userSlice';
+
 const rootReducer = combineReducers({
-  auth,
+  auth: authReducer,
   loading,
-  user,
+  user: userReducer,
   write,
   post,
   posts,

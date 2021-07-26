@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import AuthForm from '../components/auth/AuthForm';
-import { changeField, initForm, register } from '../modules/auth';
+import { authActions } from '../features/feature-auth/authSlice';
+import { userActions } from '../features/feature-user/userSlice';
 import { check } from '../modules/user';
 
 const RegisterContainer = ({ history }) => {
@@ -16,7 +17,7 @@ const RegisterContainer = ({ history }) => {
   const onChange = (e) => {
     const { value, name } = e.target;
     dispatch(
-      changeField({
+      authActions.CHANGE_FIELD({
         form: 'register',
         key: name,
         value,
@@ -34,18 +35,35 @@ const RegisterContainer = ({ history }) => {
     if (password !== passwordConfirm) {
       setError('비밀번호가 일치하지 않습니다.');
       // Empty field
-      dispatch(changeField({ form: 'register', key: 'password', value: '' }));
+      // dispatch(changeField({ form: 'register', key: 'password', value: '' }));
+      // dispatch(
+      //   changeField({ form: 'register', key: 'passwordConfirm', value: '' }),
+      // );
+
       dispatch(
-        changeField({ form: 'register', key: 'passwordConfirm', value: '' }),
+        authActions.CHANGE_FIELD({
+          form: 'register',
+          key: 'password',
+          value: '',
+        }),
+      );
+      dispatch(
+        authActions.CHANGE_FIELD({
+          form: 'register',
+          key: 'passwordConfirm',
+          value: '',
+        }),
       );
       return;
     }
     // dispatch register
-    dispatch(register({ username, password }));
+    // dispatch(register({ username, password }));
+    dispatch(authActions.REGISTER({ username, password }));
   };
 
   useEffect(() => {
-    dispatch(initForm('register'));
+    // dispatch(initForm('register'));
+    dispatch(authActions.INIT_FORM('register'));
   }, [dispatch]);
 
   useEffect(() => {
@@ -58,7 +76,7 @@ const RegisterContainer = ({ history }) => {
     }
     if (auth) {
       console.log('회원가입 성공', auth);
-      dispatch(check());
+      dispatch(userActions.CHECK());
     }
   }, [auth, authError, dispatch]);
 

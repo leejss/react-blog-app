@@ -11,17 +11,18 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import loadUser from './lib/loadUser';
 import { HelmetProvider } from 'react-helmet-async';
+import store from './app/store';
 
 // saga middleware
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware)),
-);
+// const store = createStore(
+//   rootReducer,
+//   composeWithDevTools(applyMiddleware(sagaMiddleware)),
+// );
 
-sagaMiddleware.run(rootSaga);
-loadUser(store);
+// sagaMiddleware.run(rootSaga);
+// loadUser(store);
 
 ReactDOM.render(
   <Provider store={store}>

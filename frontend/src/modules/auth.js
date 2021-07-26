@@ -1,22 +1,20 @@
-import { createAction, handleActions } from "redux-actions";
-import produce from "immer";
-import { takeLatest } from "redux-saga/effects";
-import createRequestActionTypes from "../lib/createRequestActionTypes";
-import createRequestSaga from "../lib/createRequestSaga";
-import * as authAPI from "../lib/api/auth";
+import { createAction, handleActions } from 'redux-actions';
+import produce from 'immer';
+import { takeLatest } from 'redux-saga/effects';
+import createRequestActionTypes from '../lib/createRequestActionTypes';
+import createRequestSaga from '../lib/createRequestSaga';
+import * as authAPI from '../lib/api/auth';
 
-const CHANGE_FIELD = "auth/CHANGE_FIELD";
-const INIT_FORM = "auth/INIT_FORM";
+const CHANGE_FIELD = 'auth/CHANGE_FIELD';
+const INIT_FORM = 'auth/INIT_FORM';
 
 // login과 register 요청에 대한 액션타입 정의
 
-const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] = createRequestActionTypes(
-  "auth/REGISTER"
-);
+const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] =
+  createRequestActionTypes('auth/REGISTER');
 
-const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
-  "auth/LOGIN"
-);
+const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] =
+  createRequestActionTypes('auth/LOGIN');
 
 export const changeField = createAction(
   CHANGE_FIELD,
@@ -24,7 +22,7 @@ export const changeField = createAction(
     form, // login, register
     key, // username, password, passwordConfirm
     value,
-  })
+  }),
 );
 
 export const initForm = createAction(INIT_FORM, (form) => form);
@@ -41,6 +39,7 @@ export const login = createAction(LOGIN, ({ username, password }) => ({
 
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
+
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
   yield takeLatest(LOGIN, loginSaga);
@@ -48,13 +47,13 @@ export function* authSaga() {
 
 const initialState = {
   register: {
-    username: "",
-    password: "",
-    passwordConfirm: "",
+    username: '',
+    password: '',
+    passwordConfirm: '',
   },
   login: {
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   },
   auth: null,
   authError: null,
@@ -92,7 +91,7 @@ const auth = handleActions(
       auth: null,
     }),
   },
-  initialState
+  initialState,
 );
 
 export default auth;
